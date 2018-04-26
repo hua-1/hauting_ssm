@@ -4,8 +4,28 @@
 <!-- 设置为IUserDao接口方法提供sql语句配置 -->
 <mapper namespace="cn.hua.dao.UserDao">
 
-    <select id="findUserById" resultType="cn.hua.entity.User" parameterType="int">
-        SELECT * FROM user WHERE id = #{id}
+  <insert id="insertByUser" parameterType="cn.hua.entity.User">
+      INSERT INTO tb_user (`id`, `name_user`, `age`, `address`) VALUES (#{id}, #{nameUser}, #{age}, #{address});
+  </insert>
+    <resultMap id="BaseUserAll" type="cn.hua.entity.User">
+        <id property="id" column="id"/>
+        <result property="nameUser" column="name_user"/>
+        <result property="age" column="age"/>
+        <result property="address" column="address"/>
+    </resultMap>
+    <select id="seachByUserName" resultMap="BaseUserAll">
+        SELECT  * FROM  tb_user WHERE  1=1
+        <if test="id !='' and id!=null">
+         AND   id=#{id}
+        </if>
+        <if test="nameUser!=null" >
+            AND  name_user=#{nameUser}
+        </if>
+        <if test="age !='' and age!=null" >
+            AND  age=#{age}
+        </if>
+        <if test="address!=null">
+          AND  address LIKE concat('%',#{address},'%')
+        </if>
     </select>
-
 </mapper>

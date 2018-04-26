@@ -9,7 +9,7 @@
 
     <!-- 扫描service包下所有使用注解的类型 -->
     <context:component-scan base-package="cn.hua.service"/>
-
+    <context:component-scan base-package="cn.hua.entity"/>
     <!-- 配置数据库相关参数properties的属性：${url} -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 

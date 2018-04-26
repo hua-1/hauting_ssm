@@ -2,7 +2,10 @@ package cn.hua.dao;
 
 import cn.hua.entity.User;
 
+import java.util.List;
+
 public interface UserDao {
-    // 根据 id 寻找对应的 User
-    User findUserById(int id);
+   int insertByUser(User user);
+
+   List<User> seachByUserName(User user);
 }

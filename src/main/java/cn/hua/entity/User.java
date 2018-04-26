@@ -1,15 +1,12 @@
 package cn.hua.entity;
-
-import org.springframework.stereotype.Component;
-
-
 public class User {
     private  Integer id;
-    private String name;
+
+    private  String nameUser;
+
     private  Integer age;
 
-    public User() {
-    }
+    private  String address;
 
     public Integer getId() {
         return id;
@@ -19,12 +16,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameUser() {
+        return nameUser;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
     }
 
     public Integer getAge() {
@@ -33,5 +30,13 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
